@@ -63,7 +63,7 @@ export function MobilePreview({
               >
                 {businessProfile.businessName || 'Your Business Name'}
               </div>
-              <div className="text-[9px] text-gray-600 space-y-0.5">
+              <div className="text-[11px] text-gray-600 space-y-0.5">
                 <p>{businessProfile.address}</p>
                 <p>{businessProfile.city}, {businessProfile.state}</p>
                 <p>{businessProfile.email}</p>
@@ -81,7 +81,7 @@ export function MobilePreview({
               >
                 {labels.invoice}
               </h1>
-              <div className="text-[9px] text-gray-600 space-y-0.5">
+              <div className="text-[11px] text-gray-600 space-y-0.5">
                 <p>{labels.no}: {meta.invoiceNumber}</p>
                 <p>{labels.date}: {formatDate(meta.issueDate)}</p>
                 <p>{labels.due}: {formatDate(meta.dueDate)}</p>
@@ -91,11 +91,11 @@ export function MobilePreview({
 
           {/* Bill To */}
           <div className="mb-4">
-            <h2 className="text-[8px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+            <h2 className="text-[12px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
               {labels.billTo}
               {showBoth && <span> / {LABELS.bm.billTo}</span>}
             </h2>
-            <div className="text-[9px] text-gray-700 space-y-0.5">
+            <div className="text-[11px] text-gray-700 space-y-0.5">
               <p className="font-semibold">{client.company || 'Client Company'}</p>
               <p>{client.name}</p>
               <p>{client.address}</p>
@@ -105,10 +105,10 @@ export function MobilePreview({
 
           {/* Line Items */}
           <div className="mb-4">
-            <table className="w-full text-[9px]">
+            <table className="w-full text-[11px]">
               <thead>
                 <tr 
-                  className="text-white text-[8px] font-semibold"
+                  className="text-white text-[12px] font-semibold"
                   style={{ backgroundColor: accentColor }}
                 >
                   <th className="text-left py-1.5 px-2">{labels.description}</th>
@@ -140,12 +140,12 @@ export function MobilePreview({
 
           {/* Totals */}
           <div className="border-t border-gray-200 pt-3 mb-4">
-            <div className="flex justify-between text-[9px] mb-1">
+            <div className="flex justify-between text-[11px] mb-1">
               <span className="text-gray-600">{labels.subtotal}:</span>
               <span className="text-gray-700 font-mono">RM {formatCurrency(subtotal)}</span>
             </div>
             {hasSstRegistration && (
-              <div className="flex justify-between text-[9px] mb-1">
+              <div className="flex justify-between text-[11px] mb-1">
                 <span className="text-gray-600">
                   {labels.servicesTax} ({client.isOverseas ? '0%' : '8%'}):
                 </span>
@@ -156,9 +156,9 @@ export function MobilePreview({
             )}
             <div className="border-t border-gray-300 my-2"></div>
             <div className="flex justify-between">
-              <span className="text-[10px] font-bold text-gray-700">{labels.total}:</span>
+              <span className="text-[12px] font-bold text-gray-700">{labels.total}:</span>
               <span 
-                className="text-[10px] font-bold font-mono"
+                className="text-[12px] font-bold font-mono"
                 style={{ color: accentColor }}
               >
                 RM {formatCurrency(total)}
@@ -169,10 +169,10 @@ export function MobilePreview({
           {/* Payment Details */}
           {meta.showBankDetails && businessProfile.bankName && (
             <div className="mb-4">
-              <h2 className="text-[8px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+              <h2 className="text-[12px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
                 {labels.paymentDetails}
               </h2>
-              <div className="text-[9px] text-gray-700 space-y-0.5">
+              <div className="text-[11px] text-gray-700 space-y-0.5">
                 <p>{businessProfile.bankName}</p>
                 <p>{businessProfile.accountName}</p>
                 <p>{businessProfile.accountNumber}</p>
@@ -181,7 +181,7 @@ export function MobilePreview({
           )}
 
           {/* Footer */}
-          <div className="text-center text-[8px] text-gray-400 pt-3 border-t border-gray-100">
+          <div className="text-center text-[12px] text-gray-400 pt-3 border-t border-gray-100">
             <p>{labels.thankYou}</p>
             <p className="mt-1" style={{ color: accentColor }}>invoisku.vercel.app</p>
           </div>

@@ -275,7 +275,7 @@ export function InvoiceForm({
           </h2>
           <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
             {/* Header */}
-            <div className="grid grid-cols-[1fr_60px_100px_40px_90px_32px] gap-3 px-4 py-3 bg-gray-50 border-b border-gray-200">
+            <div className="grid grid-cols-[1fr_50px_90px_36px_80px_28px] gap-2 px-3 py-3 bg-gray-50 border-b border-gray-200">
               <span className="text-xs font-medium text-gray-500">Description</span>
               <span className="text-xs font-medium text-gray-500 text-center">Qty</span>
               <span className="text-xs font-medium text-gray-500">Unit Price</span>
@@ -287,7 +287,7 @@ export function InvoiceForm({
             {items.map((item) => (
               <div
                 key={item.id}
-                className="grid grid-cols-[1fr_60px_100px_40px_90px_32px] gap-3 px-4 py-3 items-center border-b border-gray-100 last:border-b-0"
+                className="grid grid-cols-[1fr_50px_90px_36px_80px_28px] gap-2 px-3 py-3 items-center border-b border-gray-100 last:border-b-0"
               >
                 <Input
                   value={item.description}
