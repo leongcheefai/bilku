@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import {
   type LineItem,
   type Client,
@@ -8,6 +9,9 @@ import {
   formatCurrency,
   calculateTotals,
 } from '@/lib/invoice-types'
+
+const ZOOM_STEPS = [0.35, 0.45, 0.56, 0.7, 0.85, 1.0]
+const DEFAULT_ZOOM_INDEX = 2 // 0.56
 
 interface InvoicePreviewProps {
   client: Client
@@ -81,23 +85,59 @@ export function InvoicePreview({
 
   const accentColor = businessProfile.accentColor || '#f97316'
 
+  const [zoomIndex, setZoomIndex] = useState(DEFAULT_ZOOM_INDEX)
+  const zoom = ZOOM_STEPS[zoomIndex]
+
+  const zoomIn = () => setZoomIndex((i) => Math.min(i + 1, ZOOM_STEPS.length - 1))
+  const zoomOut = () => setZoomIndex((i) => Math.max(i - 1, 0))
+  const zoomReset = () => setZoomIndex(DEFAULT_ZOOM_INDEX)
+
   return (
-    <div className="hidden lg:block w-[480px] bg-gray-100 p-6 overflow-y-auto">
-      <p className="text-xs text-gray-400 text-center mb-3 uppercase tracking-wider">
-        Live Preview · Updates as you type
-      </p>
-      
-      {/* Preview Card Container */}
-      <div className="relative">
-        <div 
-          className="bg-white shadow-xl rounded-lg overflow-hidden origin-top-left"
-          style={{ 
-            width: '210mm',
-            minHeight: '297mm',
-            transform: 'scale(0.48)',
-            transformOrigin: 'top left',
-          }}
-        >
+    <div className="hidden lg:flex lg:flex-col lg:w-[560px] bg-gray-100 overflow-hidden">
+      {/* Toolbar */}
+      <div className="flex items-center justify-between px-6 pt-4 pb-2">
+        <p className="text-xs text-gray-400 uppercase tracking-wider">
+          Live Preview
+        </p>
+        <div className="flex items-center gap-1">
+          <button
+            onClick={zoomOut}
+            disabled={zoomIndex === 0}
+            className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
+            title="Zoom out"
+          >
+            −
+          </button>
+          <button
+            onClick={zoomReset}
+            className="px-2 h-7 flex items-center justify-center rounded text-xs text-gray-500 hover:bg-gray-200 font-mono tabular-nums min-w-[3.5rem]"
+            title="Reset zoom"
+          >
+            {Math.round(zoom * 100)}%
+          </button>
+          <button
+            onClick={zoomIn}
+            disabled={zoomIndex === ZOOM_STEPS.length - 1}
+            className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
+            title="Zoom in"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      {/* Scrollable preview area */}
+      <div className="flex-1 overflow-auto px-6 pb-6">
+        <div className="relative">
+          <div
+            className="bg-white shadow-xl rounded-lg overflow-hidden origin-top-left"
+            style={{
+              width: '210mm',
+              minHeight: '297mm',
+              transform: `scale(${zoom})`,
+              transformOrigin: 'top left',
+            }}
+          >
           {/* Orange Top Bar */}
           <div 
             className="h-3 w-full"
@@ -285,6 +325,7 @@ export function InvoicePreview({
               <p>{labels.computerGenerated}</p>
               <p className="mt-2" style={{ color: accentColor }}>invoisku.vercel.app</p>
             </div>
+          </div>
           </div>
         </div>
       </div>
