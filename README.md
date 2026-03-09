@@ -1,4 +1,4 @@
-# Bilku (InvoisKu)
+# BilKu
 
 SST-compliant invoice generator for Malaysian freelancers and agencies. Generate professional invoices in 60 seconds.
 

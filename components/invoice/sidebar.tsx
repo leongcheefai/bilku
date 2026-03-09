@@ -8,9 +8,10 @@ interface SidebarProps {
   history: InvoiceHistory[]
   onNewInvoice: () => void
   onOpenProfile: () => void
+  onDownload: () => void
 }
 
-export function Sidebar({ history, onNewInvoice, onOpenProfile }: SidebarProps) {
+export function Sidebar({ history, onNewInvoice, onOpenProfile, onDownload }: SidebarProps) {
   return (
     <aside className="hidden lg:flex w-64 flex-col bg-gray-900 text-white">
       {/* Logo */}
@@ -20,7 +21,7 @@ export function Sidebar({ history, onNewInvoice, onOpenProfile }: SidebarProps) 
             <FileText className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-white">InvoisKu</h1>
+            <h1 className="text-xl font-bold text-white">BilKu</h1>
             <p className="text-xs text-gray-400">SST invoices in 60s</p>
           </div>
         </div>
@@ -58,7 +59,10 @@ export function Sidebar({ history, onNewInvoice, onOpenProfile }: SidebarProps) 
                 <span className="text-xs font-semibold text-white">
                   RM {formatCurrency(invoice.total)}
                 </span>
-                <Download className="h-3.5 w-3.5 text-gray-600 group-hover:text-orange-400 transition-colors duration-150 cursor-pointer" />
+                <Download
+                  className="h-3.5 w-3.5 text-gray-600 group-hover:text-orange-400 transition-colors duration-150 cursor-pointer"
+                  onClick={(e) => { e.stopPropagation(); onDownload(); }}
+                />
               </div>
             </div>
           ))}

@@ -20,6 +20,7 @@ import {
   MOCK_HISTORY,
   generateInvoiceNumber,
 } from '@/lib/invoice-types'
+import { printInvoice } from '@/lib/print-invoice'
 
 function addDays(date: Date, days: number): string {
   const result = new Date(date)
@@ -97,6 +98,7 @@ export default function InvoicePage() {
         history={history}
         onNewInvoice={handleNewInvoice}
         onOpenProfile={() => setProfileModalOpen(true)}
+        onDownload={() => printInvoice(businessProfile, client, meta, items)}
       />
 
       {/* Main Content */}
@@ -108,7 +110,7 @@ export default function InvoicePage() {
               <FileText className="h-4 w-4 text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-gray-900">InvoisKu</h1>
+              <h1 className="text-lg font-bold text-gray-900">BilKu</h1>
               <p className="text-xs text-gray-500">SST invoices in 60s</p>
             </div>
           </div>

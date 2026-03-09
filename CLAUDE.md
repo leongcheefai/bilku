@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Bilku (InvoisKu)** — SST-compliant invoice generator for Malaysian freelancers and agencies. Single-page Next.js app with responsive desktop/mobile layout. Currently client-side only with mock data (no backend/database).
+**BilKu** — SST-compliant invoice generator for Malaysian freelancers and agencies. Single-page Next.js app with responsive desktop/mobile layout. Currently client-side only with mock data (no backend/database).
 
 ## Commands
 

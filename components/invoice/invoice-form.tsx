@@ -28,6 +28,7 @@ import {
   formatCurrency,
   calculateTotals,
 } from '@/lib/invoice-types'
+import { printInvoice } from '@/lib/print-invoice'
 
 interface InvoiceFormProps {
   client: Client
@@ -439,11 +440,20 @@ export function InvoiceForm({
             type="button"
             size="lg"
             className="w-full h-11 bg-orange-500 hover:bg-orange-600 text-white font-semibold cursor-pointer"
+            onClick={() => printInvoice(businessProfile, client, meta, items)}
           >
             <Download className="h-4 w-4 mr-2" />
             Download Invoice PDF
           </Button>
         </section>
+
+        {/* Footer */}
+        <p className="text-center text-xs text-gray-400 pt-2 pb-4">
+          Built by{' '}
+          <a href="https://www.praxor.dev/" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 font-medium">
+            Praxor
+          </a>
+        </p>
       </div>
     </div>
   )
