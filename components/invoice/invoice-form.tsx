@@ -1,6 +1,7 @@
 'use client'
 
-import { Plus, Trash2, Info, CheckCircle, Download, Eye } from 'lucide-react'
+import { useState, useCallback } from 'react'
+import { Plus, Trash2, Info, CheckCircle, Download, Eye, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -57,6 +58,14 @@ export function InvoiceForm({
     hasSstRegistration,
     client.isOverseas
   )
+
+  const [downloadState, setDownloadState] = useState<'idle' | 'done'>('idle')
+
+  const handleDownload = useCallback(() => {
+    printInvoice(businessProfile, client, meta, items)
+    setDownloadState('done')
+    setTimeout(() => setDownloadState('idle'), 2000)
+  }, [businessProfile, client, meta, items])
 
   const addLineItem = () => {
     const newItem: LineItem = {
@@ -443,11 +452,24 @@ export function InvoiceForm({
           <Button
             type="button"
             size="lg"
-            className="w-full h-11 bg-orange-500 hover:bg-orange-600 text-white font-semibold"
-            onClick={() => printInvoice(businessProfile, client, meta, items)}
+            className={`w-full h-11 font-semibold text-white transition-colors duration-200 ${
+              downloadState === 'done'
+                ? 'bg-green-500 hover:bg-green-600'
+                : 'bg-orange-500 hover:bg-orange-600'
+            }`}
+            onClick={handleDownload}
           >
-            <Download className="h-4 w-4 mr-2" />
-            Download Invoice PDF
+            {downloadState === 'done' ? (
+              <>
+                <Check className="h-4 w-4 mr-2" />
+                Invoice Ready
+              </>
+            ) : (
+              <>
+                <Download className="h-4 w-4 mr-2" />
+                Download Invoice PDF
+              </>
+            )}
           </Button>
         </section>
 

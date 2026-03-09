@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import {
   type LineItem,
   type Client,
@@ -46,9 +46,17 @@ export function InvoicePreview({
   const [zoomIndex, setZoomIndex] = useState(DEFAULT_ZOOM_INDEX)
   const zoom = ZOOM_STEPS[zoomIndex]
 
-  const zoomIn = () => setZoomIndex((i) => Math.min(i + 1, ZOOM_STEPS.length - 1))
-  const zoomOut = () => setZoomIndex((i) => Math.max(i - 1, 0))
+  const zoomIn = useCallback(() => setZoomIndex((i) => Math.min(i + 1, ZOOM_STEPS.length - 1)), [])
+  const zoomOut = useCallback(() => setZoomIndex((i) => Math.max(i - 1, 0)), [])
   const zoomReset = () => setZoomIndex(DEFAULT_ZOOM_INDEX)
+
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault()
+      if (e.deltaY < 0) zoomIn()
+      else zoomOut()
+    }
+  }, [zoomIn, zoomOut])
 
   return (
     <div className="hidden lg:flex lg:flex-col lg:w-[560px] bg-gray-100 overflow-hidden">
@@ -85,7 +93,7 @@ export function InvoicePreview({
       </div>
 
       {/* Scrollable preview area */}
-      <div className="flex-1 overflow-auto px-6 pb-6">
+      <div className="flex-1 overflow-auto px-6 pb-6" onWheel={handleWheel}>
         <div className="relative">
           <div
             className="bg-white shadow-xl rounded-lg overflow-hidden origin-top-left"
