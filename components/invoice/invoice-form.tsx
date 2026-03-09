@@ -120,9 +120,9 @@ export function InvoiceForm({
 
         {/* Section 1 - Invoice Meta */}
         <section className="mb-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
             Invoice Details
-          </h2>
+          </h3>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label className="text-sm font-medium text-gray-700">Invoice No.</Label>
@@ -187,9 +187,9 @@ export function InvoiceForm({
 
         {/* Section 2 - Client Details */}
         <section className="mb-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
             Client
-          </h2>
+          </h3>
           <div className="space-y-4">
             <div className="space-y-2">
               <Label className="text-sm font-medium text-gray-700">Company Name</Label>
@@ -279,9 +279,9 @@ export function InvoiceForm({
 
         {/* Section 3 - Line Items */}
         <section className="mb-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
             Line Items
-          </h2>
+          </h3>
           <div className="rounded-lg border border-gray-200 bg-white overflow-hidden">
             {/* Header */}
             <div className="grid grid-cols-[1fr_50px_90px_36px_80px_28px] gap-2 px-3 py-3 bg-gray-50 border-b border-gray-200">
@@ -404,9 +404,9 @@ export function InvoiceForm({
 
         {/* Section 5 - Settings & Notes */}
         <section className="mb-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
             Settings
-          </h2>
+          </h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <Label htmlFor="show-bank-details" className="text-sm text-gray-700 cursor-pointer">Show bank/payment details</Label>
@@ -426,9 +426,9 @@ export function InvoiceForm({
             </div>
           </div>
 
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mt-6 mb-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mt-6 mb-4">
             Notes
-          </h2>
+          </h3>
           <Textarea
             value={meta.notes}
             onChange={(e) => onMetaChange({ ...meta, notes: e.target.value })}

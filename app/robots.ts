@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://invoisku.vercel.app/sitemap.xml',
+    sitemap: 'https://bilku.praxor.dev/sitemap.xml',
   }
 }

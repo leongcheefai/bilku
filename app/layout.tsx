@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'BilKu - Free SST Invoice Generator for Malaysian Freelancers',
   description:
-    'Generate professional SST-compliant invoices in 60 seconds. Free invoice generator with automatic 8% SST tax calculation, bilingual support (English & Bahasa Malaysia), and multi-currency options. Built for Malaysian freelancers and agencies.',
+    'Free SST invoice generator for Malaysian freelancers. Create professional invoices with 8% SST calculation in 60 seconds.',
   keywords: [
     'SST invoice generator',
     'Malaysian invoice',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'BilKu' }],
   creator: 'BilKu',
-  metadataBase: new URL('https://invoisku.vercel.app'),
+  metadataBase: new URL('https://bilku.praxor.dev'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_MY',
-    url: 'https://invoisku.vercel.app',
+    url: 'https://bilku.praxor.dev',
     siteName: 'BilKu',
     title: 'BilKu - Free SST Invoice Generator for Malaysian Freelancers',
     description:

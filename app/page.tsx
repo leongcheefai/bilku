@@ -4,7 +4,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'BilKu',
-  url: 'https://invoisku.vercel.app',
+  url: 'https://bilku.praxor.dev',
   description:
     'Free SST-compliant invoice generator for Malaysian freelancers, agencies, and small businesses. Create professional invoices with automatic 8% SST tax calculation in seconds.',
   applicationCategory: 'BusinessApplication',

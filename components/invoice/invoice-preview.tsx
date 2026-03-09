@@ -165,13 +165,13 @@ export function InvoicePreview({
 
               {/* Invoice Info */}
               <div className="text-right">
-                <h2
-                  className="text-2xl font-bold mb-3"
+                <span
+                  className="block text-2xl font-bold mb-3"
                   style={{ color: accentColor }}
                 >
                   {labels.invoice}
                   {showBoth && <span className="text-gray-400"> / {LABELS.bm.invoice}</span>}
-                </h2>
+                </span>
                 <div className="text-[11px] text-gray-600 space-y-1">
                   <p>
                     <span className="text-gray-400">{labels.no}:</span> {meta.invoiceNumber}
@@ -188,10 +188,10 @@ export function InvoicePreview({
 
             {/* Bill To */}
             <div className="mb-8">
-              <h2 className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
+              <span className="block text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
                 {labels.billTo}
                 {showBoth && <span> / {LABELS.bm.billTo}</span>}
-              </h2>
+              </span>
               <div className="text-[11px] text-gray-700 space-y-0.5">
                 <p className="font-semibold">{client.company || 'Client Company'}</p>
                 <p>{client.name}</p>
@@ -287,10 +287,10 @@ export function InvoicePreview({
             {/* Payment Details */}
             {meta.showBankDetails && businessProfile.bankName && (
               <div className="mb-8">
-                <h2 className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                <span className="block text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
                   {labels.paymentDetails}
                   {showBoth && <span> / {LABELS.bm.paymentDetails}</span>}
-                </h2>
+                </span>
                 <div className="text-[11px] text-gray-700 space-y-0.5">
                   <p>{businessProfile.bankName}</p>
                   <p>{businessProfile.accountName}</p>
@@ -311,7 +311,7 @@ export function InvoicePreview({
             <div className="text-center text-[10px] text-gray-400 pt-4 border-t border-gray-100">
               <p>{labels.thankYou}</p>
               <p>{labels.computerGenerated}</p>
-              <p className="mt-2" style={{ color: accentColor }}>invoisku.vercel.app</p>
+              <p className="mt-2" style={{ color: accentColor }}>bilku.praxor.dev</p>
             </div>
           </div>
           </div>

@@ -75,12 +75,12 @@ export function MobilePreview({
 
             {/* Invoice Info */}
             <div className="text-right">
-              <h2
-                className="text-lg font-bold mb-2"
+              <span
+                className="block text-lg font-bold mb-2"
                 style={{ color: accentColor }}
               >
                 {labels.invoice}
-              </h2>
+              </span>
               <div className="text-[11px] text-gray-600 space-y-0.5">
                 <p>{labels.no}: {meta.invoiceNumber}</p>
                 <p>{labels.date}: {formatDate(meta.issueDate)}</p>
@@ -91,10 +91,10 @@ export function MobilePreview({
 
           {/* Bill To */}
           <div className="mb-4">
-            <h2 className="text-[12px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+            <span className="block text-[12px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
               {labels.billTo}
               {showBoth && <span> / {LABELS.bm.billTo}</span>}
-            </h2>
+            </span>
             <div className="text-[11px] text-gray-700 space-y-0.5">
               <p className="font-semibold">{client.company || 'Client Company'}</p>
               <p>{client.name}</p>
@@ -169,9 +169,9 @@ export function MobilePreview({
           {/* Payment Details */}
           {meta.showBankDetails && businessProfile.bankName && (
             <div className="mb-4">
-              <h2 className="text-[12px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
+              <span className="block text-[12px] font-semibold text-gray-400 uppercase tracking-wider mb-1">
                 {labels.paymentDetails}
-              </h2>
+              </span>
               <div className="text-[11px] text-gray-700 space-y-0.5">
                 <p>{businessProfile.bankName}</p>
                 <p>{businessProfile.accountName}</p>
@@ -183,7 +183,7 @@ export function MobilePreview({
           {/* Footer */}
           <div className="text-center text-[12px] text-gray-400 pt-3 border-t border-gray-100">
             <p>{labels.thankYou}</p>
-            <p className="mt-1" style={{ color: accentColor }}>invoisku.vercel.app</p>
+            <p className="mt-1" style={{ color: accentColor }}>bilku.praxor.dev</p>
           </div>
         </div>
       </div>
