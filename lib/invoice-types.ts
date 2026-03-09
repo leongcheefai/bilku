@@ -58,13 +58,6 @@ export interface Invoice {
   items: LineItem[]
 }
 
-export interface InvoiceHistory {
-  invoiceNumber: string
-  client: string
-  total: number
-  date: string
-}
-
 export const MALAYSIAN_STATES = [
   'Johor',
   'Kedah',
@@ -150,12 +143,6 @@ export const MOCK_ITEMS: LineItem[] = [
   { id: '1', description: 'Web Application Development (Phase 1)', quantity: 1, unitPrice: 8000, isTaxable: true },
   { id: '2', description: 'UI/UX Design Services', quantity: 1, unitPrice: 3500, isTaxable: true },
   { id: '3', description: 'Domain Registration & Hosting (1 year)', quantity: 1, unitPrice: 500, isTaxable: false },
-]
-
-export const MOCK_HISTORY: InvoiceHistory[] = [
-  { invoiceNumber: 'INV-2025-003', client: 'Acme Teknologi Sdn Bhd', total: 12920, date: '09 Mar 2025' },
-  { invoiceNumber: 'INV-2025-002', client: 'TechVenture Malaysia Sdn Bhd', total: 5200, date: '01 Mar 2025' },
-  { invoiceNumber: 'INV-2025-001', client: 'Kedai Runcit Pak Amin', total: 980, date: '15 Feb 2025' },
 ]
 
 // Bilingual labels for invoice preview

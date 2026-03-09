@@ -8,7 +8,6 @@ import { InvoiceForm } from '@/components/invoice/invoice-form'
 import { InvoicePreview } from '@/components/invoice/invoice-preview'
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable'
 import { MobilePreview } from '@/components/invoice/mobile-preview'
-import { MobileHistory } from '@/components/invoice/mobile-history'
 import { BusinessProfileModal } from '@/components/invoice/business-profile-modal'
 import {
   type Client,
@@ -18,7 +17,6 @@ import {
   MOCK_BUSINESS_PROFILE,
   MOCK_CLIENT,
   MOCK_ITEMS,
-  MOCK_HISTORY,
   generateInvoiceNumber,
 } from '@/lib/invoice-types'
 import { printInvoice } from '@/lib/print-invoice'
@@ -53,9 +51,6 @@ export function InvoicePageClient() {
 
   // Mobile tab state
   const [mobileTab, setMobileTab] = useState('form')
-
-  // History state
-  const [history] = useState(MOCK_HISTORY)
 
   const handleNewInvoice = () => {
     const newCounter = businessProfile.invoiceCounter + 1
@@ -96,10 +91,8 @@ export function InvoicePageClient() {
     <div className="flex h-screen bg-zinc-50">
       {/* Desktop Sidebar */}
       <Sidebar
-        history={history}
         onNewInvoice={handleNewInvoice}
         onOpenProfile={() => setProfileModalOpen(true)}
-        onDownload={() => printInvoice(businessProfile, client, meta, items)}
       />
 
       {/* Main Content */}
@@ -120,7 +113,7 @@ export function InvoicePageClient() {
         {/* Mobile Tabs */}
         <div className="lg:hidden">
           <Tabs value={mobileTab} onValueChange={setMobileTab} className="w-full">
-            <TabsList className="w-full grid grid-cols-3 rounded-none border-b border-gray-200 bg-white h-12">
+            <TabsList className="w-full grid grid-cols-2 rounded-none border-b border-gray-200 bg-white h-12">
               <TabsTrigger
                 value="form"
                 className="rounded-none data-[state=active]:border-b-2 data-[state=active]:border-orange-500 data-[state=active]:text-orange-600 data-[state=active]:shadow-none"
@@ -132,12 +125,6 @@ export function InvoicePageClient() {
                 className="rounded-none data-[state=active]:border-b-2 data-[state=active]:border-orange-500 data-[state=active]:text-orange-600 data-[state=active]:shadow-none"
               >
                 Preview
-              </TabsTrigger>
-              <TabsTrigger
-                value="history"
-                className="rounded-none data-[state=active]:border-b-2 data-[state=active]:border-orange-500 data-[state=active]:text-orange-600 data-[state=active]:shadow-none"
-              >
-                History
               </TabsTrigger>
             </TabsList>
 
@@ -163,12 +150,6 @@ export function InvoicePageClient() {
               />
             </TabsContent>
 
-            <TabsContent value="history" className="mt-0 flex-1 overflow-y-auto">
-              <MobileHistory
-                history={history}
-                onOpenProfile={() => setProfileModalOpen(true)}
-              />
-            </TabsContent>
           </Tabs>
         </div>
 
