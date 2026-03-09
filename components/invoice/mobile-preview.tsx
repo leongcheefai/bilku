@@ -75,12 +75,12 @@ export function MobilePreview({
 
             {/* Invoice Info */}
             <div className="text-right">
-              <h1 
+              <h2
                 className="text-lg font-bold mb-2"
                 style={{ color: accentColor }}
               >
                 {labels.invoice}
-              </h1>
+              </h2>
               <div className="text-[11px] text-gray-600 space-y-0.5">
                 <p>{labels.no}: {meta.invoiceNumber}</p>
                 <p>{labels.date}: {formatDate(meta.issueDate)}</p>

@@ -165,13 +165,13 @@ export function InvoicePreview({
 
               {/* Invoice Info */}
               <div className="text-right">
-                <h1 
+                <h2
                   className="text-2xl font-bold mb-3"
                   style={{ color: accentColor }}
                 >
                   {labels.invoice}
                   {showBoth && <span className="text-gray-400"> / {LABELS.bm.invoice}</span>}
-                </h1>
+                </h2>
                 <div className="text-[11px] text-gray-600 space-y-1">
                   <p>
                     <span className="text-gray-400">{labels.no}:</span> {meta.invoiceNumber}

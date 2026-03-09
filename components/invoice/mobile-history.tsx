@@ -19,7 +19,7 @@ export function MobileHistory({ history, onOpenProfile }: MobileHistoryProps) {
             <FileText className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-gray-900">BilKu</h1>
+            <span className="text-lg font-bold text-gray-900">BilKu</span>
             <p className="text-xs text-gray-500">Invoice History</p>
           </div>
         </div>

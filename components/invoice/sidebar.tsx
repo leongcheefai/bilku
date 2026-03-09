@@ -45,7 +45,7 @@ export function Sidebar({ history, onNewInvoice, onOpenProfile, onDownload }: Si
             </div>
             {!collapsed && (
               <div className="overflow-hidden">
-                <h1 className="text-xl font-bold text-white">BilKu</h1>
+                <span className="text-xl font-bold text-white">BilKu</span>
                 <p className="text-xs text-gray-400">SST invoices in 60s</p>
               </div>
             )}

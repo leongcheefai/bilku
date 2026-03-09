@@ -111,7 +111,7 @@ export function InvoicePageClient() {
               <FileText className="h-4 w-4 text-white" />
             </div>
             <div>
-              <h1 className="text-lg font-bold text-gray-900">BilKu</h1>
+              <span className="text-lg font-bold text-gray-900">BilKu</span>
               <p className="text-xs text-gray-500">SST invoices in 60s</p>
             </div>
           </div>

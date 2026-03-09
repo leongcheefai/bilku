@@ -142,9 +142,9 @@ export default function Page() {
           <li>Preview your professional invoice and export it as a PDF or print it directly.</li>
         </ol>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2>Frequently Asked Questions about SST Invoicing in Malaysia</h2>
 
-        <h3>What is SST and do I need it on my invoices?</h3>
+        <h3>Understanding SST Requirements for Malaysian Invoices</h3>
         <p>
           SST (Sales and Service Tax) is a Malaysian tax at 8% on taxable goods and services.
           If your business is SST-registered with the Royal Malaysian Customs Department, you
@@ -152,19 +152,19 @@ export default function Page() {
           8% SST for each taxable line item.
         </p>
 
-        <h3>Is BilKu free to use?</h3>
+        <h3>Free Invoice Generation with No Signup</h3>
         <p>
           Yes, BilKu is completely free. You can generate unlimited SST-compliant invoices
           without any signup or payment required.
         </p>
 
-        <h3>Can I create invoices in Bahasa Malaysia?</h3>
+        <h3>Generating Invoices in Bahasa Malaysia</h3>
         <p>
-          Yes, BilKu supports English, Bahasa Malaysia, and bilingual invoice generation.
+          BilKu supports English, Bahasa Malaysia, and bilingual invoice generation.
           You can switch languages per invoice to suit your client needs.
         </p>
 
-        <h3>What currencies does BilKu support?</h3>
+        <h3>Supported Invoice Currencies for Malaysian Businesses</h3>
         <p>
           BilKu supports multiple currencies including MYR (Malaysian Ringgit), USD, SGD,
           EUR, and GBP. For overseas clients, SST is automatically zero-rated.
