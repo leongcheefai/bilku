@@ -6,6 +6,8 @@ import {
   type Client,
   type InvoiceMeta,
   type BusinessProfile,
+  INVOICE_LABELS,
+  formatDate,
   formatCurrency,
   calculateTotals,
 } from '@/lib/invoice-types'
@@ -20,51 +22,7 @@ interface InvoicePreviewProps {
   businessProfile: BusinessProfile
 }
 
-// Bilingual labels
-const LABELS = {
-  en: {
-    invoice: 'INVOICE',
-    billTo: 'BILL TO',
-    description: 'Description',
-    qty: 'Qty',
-    unitPrice: 'Unit Price',
-    amount: 'Amount',
-    subtotal: 'Subtotal',
-    servicesTax: 'Service Tax',
-    total: 'TOTAL',
-    paymentDetails: 'PAYMENT DETAILS',
-    taxNote: '* Subject to 8% Service Tax',
-    thankYou: 'Thank you for your business.',
-    computerGenerated: 'This is a computer-generated invoice.',
-    no: 'No',
-    date: 'Date',
-    due: 'Due',
-  },
-  bm: {
-    invoice: 'INVOIS',
-    billTo: 'BIL KEPADA',
-    description: 'Penerangan',
-    qty: 'Kuantiti',
-    unitPrice: 'Harga Unit',
-    amount: 'Jumlah',
-    subtotal: 'Jumlah Kecil',
-    servicesTax: 'Cukai Perkhidmatan',
-    total: 'JUMLAH',
-    paymentDetails: 'BUTIRAN PEMBAYARAN',
-    taxNote: '* Tertakluk kepada 8% Cukai Perkhidmatan',
-    thankYou: 'Terima kasih atas urusan anda.',
-    computerGenerated: 'Ini adalah invois yang dijana komputer.',
-    no: 'No',
-    date: 'Tarikh',
-    due: 'Tamat Tempoh',
-  },
-}
-
-function formatDate(dateStr: string): string {
-  if (!dateStr) return ''
-  const date = new Date(dateStr)
-  return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
-}
+const LABELS = INVOICE_LABELS
 
 export function InvoicePreview({
   client,

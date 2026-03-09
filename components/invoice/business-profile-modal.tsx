@@ -348,13 +348,12 @@ export function BusinessProfileModal({
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="cursor-pointer"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSave}
-            className="bg-orange-500 hover:bg-orange-600 text-white cursor-pointer"
+            className="bg-orange-500 hover:bg-orange-600 text-white"
           >
             Save Profile
           </Button>

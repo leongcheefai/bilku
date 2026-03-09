@@ -27,7 +27,6 @@ export function MobileHistory({ history, onOpenProfile }: MobileHistoryProps) {
           variant="ghost"
           size="icon"
           onClick={onOpenProfile}
-          className="cursor-pointer"
         >
           <Settings className="h-5 w-5 text-gray-500" />
         </Button>
@@ -54,7 +53,7 @@ export function MobileHistory({ history, onOpenProfile }: MobileHistoryProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 cursor-pointer"
+                className="h-8 w-8"
               >
                 <Download className="h-4 w-4 text-gray-400 hover:text-orange-500" />
               </Button>

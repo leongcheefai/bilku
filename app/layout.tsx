@@ -11,7 +11,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'BilKu - SST Invoice Generator for Malaysian Freelancers',
   description: 'Generate professional SST-compliant invoices in 60 seconds. Built for Malaysian freelancers and agencies.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {

@@ -31,7 +31,7 @@ export function Sidebar({ history, onNewInvoice, onOpenProfile, onDownload }: Si
       <div className="p-4">
         <Button
           onClick={onNewInvoice}
-          className="w-full h-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold cursor-pointer"
+          className="w-full h-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold"
         >
           <Plus className="h-4 w-4 mr-2" />
           New Invoice

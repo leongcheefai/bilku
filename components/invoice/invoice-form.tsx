@@ -149,7 +149,7 @@ export function InvoiceForm({
                   variant={meta.language === 'en' ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => onMetaChange({ ...meta, language: 'en' })}
-                  className={`flex-1 cursor-pointer ${meta.language === 'en' ? 'bg-orange-500 hover:bg-orange-600 text-white' : ''}`}
+                  className={`flex-1 ${meta.language === 'en' ? 'bg-orange-500 hover:bg-orange-600 text-white' : ''}`}
                 >
                   EN
                 </Button>
@@ -158,7 +158,7 @@ export function InvoiceForm({
                   variant={meta.language === 'bm' ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => onMetaChange({ ...meta, language: 'bm' })}
-                  className={`flex-1 cursor-pointer ${meta.language === 'bm' ? 'bg-orange-500 hover:bg-orange-600 text-white' : ''}`}
+                  className={`flex-1 ${meta.language === 'bm' ? 'bg-orange-500 hover:bg-orange-600 text-white' : ''}`}
                 >
                   BM
                 </Button>
@@ -167,7 +167,7 @@ export function InvoiceForm({
                   variant={meta.language === 'both' ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => onMetaChange({ ...meta, language: 'both' })}
-                  className={`flex-1 cursor-pointer ${meta.language === 'both' ? 'bg-orange-500 hover:bg-orange-600 text-white' : ''}`}
+                  className={`flex-1 ${meta.language === 'both' ? 'bg-orange-500 hover:bg-orange-600 text-white' : ''}`}
                 >
                   EN + BM
                 </Button>
@@ -350,7 +350,7 @@ export function InvoiceForm({
                 variant="ghost"
                 size="sm"
                 onClick={addLineItem}
-                className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 cursor-pointer"
+                className="text-orange-500 hover:text-orange-600 hover:bg-orange-50"
               >
                 <Plus className="h-4 w-4 mr-1" />
                 Add Line Item
@@ -435,7 +435,7 @@ export function InvoiceForm({
             variant="outline"
             size="lg"
             onClick={onPreview}
-            className="w-full h-11 cursor-pointer lg:hidden"
+            className="w-full h-11 lg:hidden"
           >
             <Eye className="h-4 w-4 mr-2" />
             Preview PDF
@@ -443,7 +443,7 @@ export function InvoiceForm({
           <Button
             type="button"
             size="lg"
-            className="w-full h-11 bg-orange-500 hover:bg-orange-600 text-white font-semibold cursor-pointer"
+            className="w-full h-11 bg-orange-500 hover:bg-orange-600 text-white font-semibold"
             onClick={() => printInvoice(businessProfile, client, meta, items)}
           >
             <Download className="h-4 w-4 mr-2" />
