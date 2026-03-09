@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import {
   type LineItem,
   type Client,
@@ -12,8 +12,8 @@ import {
   calculateTotals,
 } from '@/lib/invoice-types'
 
-const ZOOM_STEPS = [0.35, 0.45, 0.56, 0.7, 0.85, 1.0]
-const DEFAULT_ZOOM_INDEX = 2 // 0.56
+const A4_WIDTH_PX = 793.7 // 210mm in px at 96dpi
+const PADDING_PX = 48 // px-6 = 24px each side
 
 interface InvoicePreviewProps {
   client: Client
@@ -43,12 +43,27 @@ export function InvoicePreview({
 
   const accentColor = businessProfile.accentColor || '#f97316'
 
-  const [zoomIndex, setZoomIndex] = useState(DEFAULT_ZOOM_INDEX)
-  const zoom = ZOOM_STEPS[zoomIndex]
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [autoZoom, setAutoZoom] = useState(0.56)
+  const [zoomOffset, setZoomOffset] = useState(0)
+  const zoom = Math.max(0.2, Math.min(1.5, autoZoom + zoomOffset))
 
-  const zoomIn = useCallback(() => setZoomIndex((i) => Math.min(i + 1, ZOOM_STEPS.length - 1)), [])
-  const zoomOut = useCallback(() => setZoomIndex((i) => Math.max(i - 1, 0)), [])
-  const zoomReset = () => setZoomIndex(DEFAULT_ZOOM_INDEX)
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const width = entry.contentRect.width - PADDING_PX
+        setAutoZoom(Math.max(0.2, Math.min(1.0, width / A4_WIDTH_PX)))
+      }
+    })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  const zoomIn = useCallback(() => setZoomOffset((o) => Math.min(o + 0.1, 0.5)), [])
+  const zoomOut = useCallback(() => setZoomOffset((o) => Math.max(o - 0.1, -0.4)), [])
+  const zoomReset = useCallback(() => setZoomOffset(0), [])
 
   const handleWheel = useCallback((e: React.WheelEvent) => {
     if (e.ctrlKey || e.metaKey) {
@@ -59,7 +74,7 @@ export function InvoicePreview({
   }, [zoomIn, zoomOut])
 
   return (
-    <div className="hidden lg:flex lg:flex-col lg:w-[560px] bg-gray-100 overflow-hidden">
+    <div ref={containerRef} className="flex flex-col h-full bg-gray-100 overflow-hidden">
       {/* Toolbar */}
       <div className="flex items-center justify-between px-6 pt-4 pb-2">
         <p className="text-xs text-gray-400 uppercase tracking-wider">
@@ -68,7 +83,7 @@ export function InvoicePreview({
         <div className="flex items-center gap-1">
           <button
             onClick={zoomOut}
-            disabled={zoomIndex === 0}
+            disabled={zoomOffset <= -0.4}
             aria-label="Zoom out"
             className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
           >
@@ -83,7 +98,7 @@ export function InvoicePreview({
           </button>
           <button
             onClick={zoomIn}
-            disabled={zoomIndex === ZOOM_STEPS.length - 1}
+            disabled={zoomOffset >= 0.5}
             aria-label="Zoom in"
             className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
           >
@@ -94,9 +109,16 @@ export function InvoicePreview({
 
       {/* Scrollable preview area */}
       <div className="flex-1 overflow-auto px-6 pb-6" onWheel={handleWheel}>
-        <div className="relative">
+        <div
+          className="relative"
+          style={{
+            width: `calc(210mm * ${zoom})`,
+            height: `calc(297mm * ${zoom})`,
+            minHeight: `calc(297mm * ${zoom})`,
+          }}
+        >
           <div
-            className="bg-white shadow-xl rounded-lg overflow-hidden origin-top-left"
+            className="bg-white shadow-xl rounded-lg overflow-hidden"
             style={{
               width: '210mm',
               minHeight: '297mm',

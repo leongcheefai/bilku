@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Sidebar } from '@/components/invoice/sidebar'
 import { InvoiceForm } from '@/components/invoice/invoice-form'
 import { InvoicePreview } from '@/components/invoice/invoice-preview'
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from '@/components/ui/resizable'
 import { MobilePreview } from '@/components/invoice/mobile-preview'
 import { MobileHistory } from '@/components/invoice/mobile-history'
 import { BusinessProfileModal } from '@/components/invoice/business-profile-modal'
@@ -173,22 +174,29 @@ export default function InvoicePage() {
 
         {/* Desktop Layout */}
         <div className="hidden lg:flex flex-1 overflow-hidden">
-          <InvoiceForm
-            client={client}
-            meta={meta}
-            items={items}
-            businessProfile={businessProfile}
-            onClientChange={setClient}
-            onMetaChange={setMeta}
-            onItemsChange={setItems}
-            onPreview={() => {}}
-          />
-          <InvoicePreview
-            client={client}
-            meta={meta}
-            items={items}
-            businessProfile={businessProfile}
-          />
+          <ResizablePanelGroup direction="horizontal">
+            <ResizablePanel defaultSize={55} minSize={30}>
+              <InvoiceForm
+                client={client}
+                meta={meta}
+                items={items}
+                businessProfile={businessProfile}
+                onClientChange={setClient}
+                onMetaChange={setMeta}
+                onItemsChange={setItems}
+                onPreview={() => {}}
+              />
+            </ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel defaultSize={45} minSize={25}>
+              <InvoicePreview
+                client={client}
+                meta={meta}
+                items={items}
+                businessProfile={businessProfile}
+              />
+            </ResizablePanel>
+          </ResizablePanelGroup>
         </div>
       </main>
 
