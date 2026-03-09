@@ -11,23 +11,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'BilKu - SST Invoice Generator for Malaysian Freelancers',
   description: 'Generate professional SST-compliant invoices in 60 seconds. Built for Malaysian freelancers and agencies.',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export default function RootLayout({
