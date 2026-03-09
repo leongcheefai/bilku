@@ -248,10 +248,11 @@ export function InvoiceForm({
               </div>
             </div>
             <div className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4">
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-700">Overseas client (zero-rated SST)</span>
-              </div>
+              <Label htmlFor="overseas-toggle" className="text-sm text-gray-700 cursor-pointer">
+                Overseas client (zero-rated SST)
+              </Label>
               <Switch
+                id="overseas-toggle"
                 checked={client.isOverseas}
                 onCheckedChange={(checked) => onClientChange({ ...client, isOverseas: checked })}
               />
@@ -335,6 +336,7 @@ export function InvoiceForm({
                 </span>
                 <button
                   onClick={() => removeLineItem(item.id)}
+                  aria-label={`Remove ${item.description || 'line item'}`}
                   className="flex justify-center cursor-pointer"
                 >
                   <Trash2 className="h-4 w-4 text-gray-400 hover:text-red-500 transition-colors duration-150" />
@@ -398,15 +400,17 @@ export function InvoiceForm({
           </h2>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label className="text-sm text-gray-700">Show bank/payment details</Label>
+              <Label htmlFor="show-bank-details" className="text-sm text-gray-700 cursor-pointer">Show bank/payment details</Label>
               <Switch
+                id="show-bank-details"
                 checked={meta.showBankDetails}
                 onCheckedChange={(checked) => onMetaChange({ ...meta, showBankDetails: checked })}
               />
             </div>
             <div className="flex items-center justify-between">
-              <Label className="text-sm text-gray-700">Include DuitNow QR code</Label>
+              <Label htmlFor="show-duitnow-qr" className="text-sm text-gray-700 cursor-pointer">Include DuitNow QR code</Label>
               <Switch
+                id="show-duitnow-qr"
                 checked={meta.showDuitNowQR}
                 onCheckedChange={(checked) => onMetaChange({ ...meta, showDuitNowQR: checked })}
               />

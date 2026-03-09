@@ -1,6 +1,7 @@
 'use client'
 
-import { Upload } from 'lucide-react'
+import { useRef } from 'react'
+import { Upload, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -41,6 +42,19 @@ export function BusinessProfileModal({
   profile,
   onProfileChange,
 }: BusinessProfileModalProps) {
+  const logoInputRef = useRef<HTMLInputElement>(null)
+
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    if (file.size > 2 * 1024 * 1024) return // 2MB limit
+    const reader = new FileReader()
+    reader.onload = () => {
+      onProfileChange({ ...profile, logo: reader.result as string })
+    }
+    reader.readAsDataURL(file)
+  }
+
   const handleSave = () => {
     onOpenChange(false)
   }
@@ -160,13 +174,38 @@ export function BusinessProfileModal({
 
             <div className="space-y-2">
               <Label className="text-sm font-medium text-gray-700">Logo</Label>
-              <div className="flex items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg hover:border-gray-400 transition-colors duration-150 cursor-pointer">
-                <div className="text-center">
-                  <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-                  <p className="text-sm text-gray-500">Click or drag to upload logo</p>
-                  <p className="text-xs text-gray-400">PNG, JPG up to 2MB</p>
+              <input
+                ref={logoInputRef}
+                type="file"
+                accept="image/png,image/jpeg"
+                onChange={handleLogoUpload}
+                className="sr-only"
+                aria-label="Upload business logo"
+              />
+              {profile.logo ? (
+                <div className="relative w-full h-32 border border-gray-200 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
+                  <img src={profile.logo} alt="Business logo" className="max-h-28 max-w-full object-contain" />
+                  <button
+                    onClick={() => onProfileChange({ ...profile, logo: null })}
+                    aria-label="Remove logo"
+                    className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-gray-900/60 text-white hover:bg-gray-900/80 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none"
+                  >
+                    <X className="h-3.5 w-3.5" />
+                  </button>
                 </div>
-              </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => logoInputRef.current?.click()}
+                  className="flex items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg hover:border-gray-400 focus-visible:border-gray-400 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none transition-colors duration-150 cursor-pointer"
+                >
+                  <div className="text-center">
+                    <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                    <p className="text-sm text-gray-500">Click to upload logo</p>
+                    <p className="text-xs text-gray-400">PNG, JPG up to 2MB</p>
+                  </div>
+                </button>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -176,13 +215,13 @@ export function BusinessProfileModal({
                   <button
                     key={color.value}
                     onClick={() => onProfileChange({ ...profile, accentColor: color.value })}
-                    className={`w-8 h-8 rounded-full border-2 transition-all duration-150 cursor-pointer ${
+                    aria-label={`${color.name}${profile.accentColor === color.value ? ' (selected)' : ''}`}
+                    className={`w-8 h-8 rounded-full border-2 transition-all duration-150 cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-400 focus-visible:outline-none ${
                       profile.accentColor === color.value
                         ? 'border-gray-900 scale-110'
                         : 'border-transparent'
                     }`}
                     style={{ backgroundColor: color.value }}
-                    title={color.name}
                   />
                 ))}
                 <div className="flex items-center gap-2">

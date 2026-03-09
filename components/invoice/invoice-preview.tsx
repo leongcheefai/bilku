@@ -103,23 +103,23 @@ export function InvoicePreview({
           <button
             onClick={zoomOut}
             disabled={zoomIndex === 0}
-            className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
-            title="Zoom out"
+            aria-label="Zoom out"
+            className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
           >
             −
           </button>
           <button
             onClick={zoomReset}
-            className="px-2 h-7 flex items-center justify-center rounded text-xs text-gray-500 hover:bg-gray-200 font-mono tabular-nums min-w-[3.5rem]"
-            title="Reset zoom"
+            aria-label={`Reset zoom (currently ${Math.round(zoom * 100)}%)`}
+            className="px-2 h-7 flex items-center justify-center rounded text-xs text-gray-500 hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none font-mono tabular-nums min-w-[3.5rem]"
           >
             {Math.round(zoom * 100)}%
           </button>
           <button
             onClick={zoomIn}
             disabled={zoomIndex === ZOOM_STEPS.length - 1}
-            className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
-            title="Zoom in"
+            aria-label="Zoom in"
+            className="w-7 h-7 flex items-center justify-center rounded text-gray-500 hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:outline-none disabled:opacity-30 disabled:cursor-not-allowed text-sm font-medium"
           >
             +
           </button>
