@@ -106,17 +106,17 @@ export const ACCENT_COLORS = [
 ] as const
 
 export const MOCK_BUSINESS_PROFILE: BusinessProfile = {
-  businessName: 'Firsttofly Sdn Bhd',
+  businessName: 'Praxor Sdn Bhd',
   registrationNo: '202301012345',
   sstRegistrationNo: 'W-SS-0012-20240001',
   address: 'Unit 12-3A, Menara 1 Sentrum',
   city: 'Kuala Lumpur',
   postcode: '50470',
   state: 'Wilayah Persekutuan Kuala Lumpur',
-  email: 'hello@firsttofly.com',
+  email: 'hello@praxor.dev',
   phone: '+60 12-345 6789',
   bankName: 'Maybank',
-  accountName: 'Firsttofly Sdn Bhd',
+  accountName: 'Praxor Sdn Bhd',
   accountNumber: '5642 1234 5678',
   duitNowNumber: '',
   accentColor: '#f97316',
