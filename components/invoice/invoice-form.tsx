@@ -91,7 +91,7 @@ export function InvoiceForm({
   }
 
   return (
-    <div className="flex-1 overflow-y-auto bg-zinc-50">
+    <div className="h-full overflow-y-auto bg-zinc-50">
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* SST Status Banner */}
         {hasSstRegistration ? (

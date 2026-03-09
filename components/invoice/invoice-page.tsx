@@ -111,8 +111,8 @@ export function InvoicePageClient() {
         </div>
 
         {/* Mobile Tabs */}
-        <div className="lg:hidden">
-          <Tabs value={mobileTab} onValueChange={setMobileTab} className="w-full">
+        <div className="lg:hidden flex-1 flex flex-col overflow-hidden">
+          <Tabs value={mobileTab} onValueChange={setMobileTab} className="w-full flex-1 flex flex-col overflow-hidden">
             <TabsList className="w-full grid grid-cols-2 rounded-none border-b border-gray-200 bg-white h-12">
               <TabsTrigger
                 value="form"
@@ -128,7 +128,7 @@ export function InvoicePageClient() {
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="form" className="mt-0 flex-1 overflow-y-auto">
+            <TabsContent value="form" className="mt-0 flex-1 min-h-0 overflow-y-auto">
               <InvoiceForm
                 client={client}
                 meta={meta}
@@ -141,7 +141,7 @@ export function InvoicePageClient() {
               />
             </TabsContent>
 
-            <TabsContent value="preview" className="mt-0 flex-1 overflow-y-auto">
+            <TabsContent value="preview" className="mt-0 flex-1 min-h-0 overflow-y-auto">
               <MobilePreview
                 client={client}
                 meta={meta}
