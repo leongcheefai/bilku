@@ -82,6 +82,18 @@ export default function Page() {
       <div className="sr-only">
         <h1>BilKu - Free SST Invoice Generator for Malaysian Freelancers</h1>
 
+        <nav aria-label="Page sections">
+          <ul>
+            <li><a href="#sst-compliance">SST-Compliant Invoice Generation</a></li>
+            <li><a href="#bilingual">Bilingual Invoices in English and Bahasa Malaysia</a></li>
+            <li><a href="#multi-currency">Multi-Currency Support for Malaysian Businesses</a></li>
+            <li><a href="#features">Professional Invoice Features</a></li>
+            <li><a href="#for-freelancers">Built for Malaysian Freelancers and Agencies</a></li>
+            <li><a href="#how-to">How to Create an SST Invoice</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </nav>
+
         <p>
           BilKu is a free, professional invoice generator built specifically for Malaysian
           freelancers, agencies, and small businesses. Create SST-compliant invoices in under
@@ -89,7 +101,7 @@ export default function Page() {
           in English and Bahasa Malaysia, and multiple currency options.
         </p>
 
-        <h2>SST-Compliant Invoice Generation</h2>
+        <h2 id="sst-compliance">SST-Compliant Invoice Generation</h2>
         <p>
           Generate invoices that comply with Malaysian SST (Sales and Service Tax) regulations.
           BilKu automatically calculates the 8% SST on taxable line items and clearly separates
@@ -98,7 +110,7 @@ export default function Page() {
           Overseas clients are automatically zero-rated for SST purposes.
         </p>
 
-        <h2>Bilingual Invoices in English and Bahasa Malaysia</h2>
+        <h2 id="bilingual">Bilingual Invoices in English and Bahasa Malaysia</h2>
         <p>
           Create professional invoices in English, Bahasa Malaysia, or both languages
           simultaneously. BilKu supports bilingual invoice generation so you can serve
@@ -106,7 +118,7 @@ export default function Page() {
           all from the same invoice template.
         </p>
 
-        <h2>Multi-Currency Support for Malaysian Businesses</h2>
+        <h2 id="multi-currency">Multi-Currency Support for Malaysian Businesses</h2>
         <p>
           Invoice your clients in Malaysian Ringgit (MYR), US Dollars (USD), Singapore
           Dollars (SGD), Euros (EUR), or British Pounds (GBP). BilKu formats currency
@@ -114,7 +126,7 @@ export default function Page() {
           transactions.
         </p>
 
-        <h2>Professional Invoice Features</h2>
+        <h2 id="features">Professional Invoice Features</h2>
         <p>
           BilKu includes everything Malaysian freelancers need to create professional
           invoices: customizable business profiles with company logo, bank account details
@@ -124,7 +136,7 @@ export default function Page() {
           pay you quickly.
         </p>
 
-        <h2>Built for Malaysian Freelancers and Agencies</h2>
+        <h2 id="for-freelancers">Built for Malaysian Freelancers and Agencies</h2>
         <p>
           Whether you are a freelance designer in Kuala Lumpur, a software developer in
           Penang, a marketing agency in Johor Bahru, or a consultant in Cyberjaya, BilKu
@@ -133,7 +145,7 @@ export default function Page() {
           includes local bank details for major Malaysian banks.
         </p>
 
-        <h2>How to Create an SST Invoice with BilKu</h2>
+        <h2 id="how-to">How to Create an SST Invoice with BilKu</h2>
         <ol>
           <li>Set up your business profile with company name, SST registration number, and bank details.</li>
           <li>Enter your client details including name, company, and address.</li>
@@ -142,7 +154,7 @@ export default function Page() {
           <li>Preview your professional invoice and export it as a PDF or print it directly.</li>
         </ol>
 
-        <h2>Frequently Asked Questions about SST Invoicing in Malaysia</h2>
+        <h2 id="faq">Frequently Asked Questions about SST Invoicing in Malaysia</h2>
 
         <h3>Understanding SST Requirements for Malaysian Invoices</h3>
         <p>
