@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FileText, Plus, Settings, PanelLeftClose, PanelLeft } from 'lucide-react'
+import { FileText, Plus, Settings, PanelLeftClose, PanelLeft, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
 import { Kbd } from '@/components/ui/kbd'
@@ -112,8 +112,30 @@ export function Sidebar({ onNewInvoice, onOpenProfile }: SidebarProps) {
       {/* Spacer */}
       <div className="flex-1" />
 
-      {/* Business Profile */}
-      <div className="mt-auto border-t border-gray-800 p-3">
+      {/* Promo Banner + Business Profile */}
+      <div className="mt-auto border-t border-gray-800 p-3 space-y-2">
+        {!collapsed && (
+          <a
+            href="https://www.praxor.dev/offero"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-lg bg-gradient-to-r from-orange-500/15 to-orange-600/10 border border-orange-500/20 px-3 py-2.5 hover:from-orange-500/25 hover:to-orange-600/20 transition-colors duration-150"
+          >
+            <p className="text-xs font-semibold text-orange-400">Try Offero</p>
+            <p className="text-[11px] text-gray-400 mt-0.5">Proposal & quote builder for freelancers</p>
+          </a>
+        )}
+        {collapsed && (
+          <a
+            href="https://www.praxor.dev/offero"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/15 border border-orange-500/20 hover:bg-orange-500/25 transition-colors duration-150"
+            title="Try Offero"
+          >
+            <ExternalLink className="h-3.5 w-3.5 text-orange-400" />
+          </a>
+        )}
         <button
           onClick={onOpenProfile}
           className={cn(
