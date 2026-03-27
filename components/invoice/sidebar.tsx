@@ -116,7 +116,7 @@ export function Sidebar({ onNewInvoice, onOpenProfile }: SidebarProps) {
       <div className="mt-auto border-t border-gray-800 p-3 space-y-2">
         {!collapsed && (
           <a
-            href="https://www.praxor.dev/offero"
+            href="https://www.offero.cloud"
             target="_blank"
             rel="noopener noreferrer"
             className="block rounded-lg bg-gradient-to-r from-orange-500/15 to-orange-600/10 border border-orange-500/20 px-3 py-2.5 hover:from-orange-500/25 hover:to-orange-600/20 transition-colors duration-150"
@@ -127,7 +127,7 @@ export function Sidebar({ onNewInvoice, onOpenProfile }: SidebarProps) {
         )}
         {collapsed && (
           <a
-            href="https://www.praxor.dev/offero"
+            href="https://www.offero.cloud"
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/15 border border-orange-500/20 hover:bg-orange-500/25 transition-colors duration-150"
